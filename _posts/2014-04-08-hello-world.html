@@ -12,37 +12,37 @@ title: 你好,世界
 
 
 function sendMailError() {
-		var infoType = $.trim($('#infoType').text());
-		var email = $.trim($('#email').val());
-		var title = $.trim($('#titleText').text());
-		var errorDes = $.trim($('#errorsDes').val());
-		var pageUrl = $.trim($('#bcurl').text());
-		$.ajax({
-			type : "get",
-			async :false,
-			url : 'http://115.182.16.96:8080/zlk-html/sendMail',
-			dataType : "jsonp",
-			jsonp: "callbackparam",
-			jsonpCallback:"success_jsonpCallback",
-			data  :{
-			    infoType:infoType,
-			    email:email,
-			    title:title,
-			    pageUrl:pageUrl,
-			    errorDes:errorDes
-			},
-			success : function(data) {
-				if (data.name == 'success') {
-					  alert('发送成功，谢谢您!');
-					  $("#bc").hide();
-				} else {
-					  alert('发送失败，请重试!');
-				}
-			},
-			error : function(jqXHR, textStatus, errorThrown) {
-	 			alert("异常:"+textStatus+'== '+errorThrown);
-	 		}  
-		});
+	var infoType = $.trim($('#infoType').text());
+	var email = $.trim($('#email').val());
+	var title = $.trim($('#titleText').text());
+	var errorDes = $.trim($('#errorsDes').val());
+	var pageUrl = $.trim($('#bcurl').text());
+	$.ajax({
+		type : "get",
+		async :false,
+		url : 'http://115.182.16.96:8080/zlk-html/sendMail',
+		dataType : "jsonp",
+		jsonp: "callbackparam",
+		jsonpCallback:"success_jsonpCallback",
+		data  :{
+		    infoType:infoType,
+		    email:email,
+		    title:title,
+		    pageUrl:pageUrl,
+		    errorDes:errorDes
+		},
+		success : function(data) {
+			if (data.name == 'success') {
+				  alert('发送成功，谢谢您!');
+				  $("#bc").hide();
+			} else {
+				  alert('发送失败，请重试!');
+			}
+		},
+		error : function(jqXHR, textStatus, errorThrown) {
+ 			alert("异常:"+textStatus+'== '+errorThrown);
+ 		}  
+	});
 	}
 	
 	
