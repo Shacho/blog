@@ -8,3 +8,69 @@ title: 你好,世界
 <p>我的第一篇文章</p>
 
 <p>{{page.date | date_to_string}}</p>
+
+
+
+function sendMailError() {
+		var infoType = $.trim($('#infoType').text());
+		var email = $.trim($('#email').val());
+		var title = $.trim($('#titleText').text());
+		var errorDes = $.trim($('#errorsDes').val());
+		var pageUrl = $.trim($('#bcurl').text());
+		$.ajax({
+			type : "get",
+			async :false,
+			url : 'http://115.182.16.96:8080/zlk-html/sendMail',
+			dataType : "jsonp",
+			jsonp: "callbackparam",
+			jsonpCallback:"success_jsonpCallback",
+			data  :{
+			    infoType:infoType,
+			    email:email,
+			    title:title,
+			    pageUrl:pageUrl,
+			    errorDes:errorDes
+			},
+			success : function(data) {
+				if (data.name == 'success') {
+					  alert('发送成功，谢谢您!');
+					  $("#bc").hide();
+				} else {
+					  alert('发送失败，请重试!');
+				}
+			},
+			error : function(jqXHR, textStatus, errorThrown) {
+	 			alert("异常:"+textStatus+'== '+errorThrown);
+	 		}  
+		});
+	}
+	
+	
+	Server端
+	------------------------------------------------------------------------
+	@RequestMapping(value = "sendMail", method = RequestMethod.GET)
+	public @ResponseBody String sendMail(HttpServletRequest request,
+			HttpServletResponse response) throws UnsupportedEncodingException {
+		logger.info("enter the sendMail Controller.......");
+		response.setContentType("application/json");
+		String infoType = new String(request.getParameter("infoType").toString().getBytes("iso8859_1"), "UTF-8");
+		String title = new String(request.getParameter("title").toString().getBytes("iso8859_1"), "UTF-8");
+		String email = new String(request.getParameter("email").toString().getBytes("iso8859_1"), "UTF-8");
+		String errorDes = new String(request.getParameter("errorDes").toString().getBytes("iso8859_1"), "UTF-8");
+		String pageUrl = new String(request.getParameter("pageUrl").toString().getBytes("iso8859_1"), "UTF-8");
+		System.out.println(infoType+"--"+email+"--"+title+"--"+errorDes);
+		try {
+  			SimpleMailMessage mail = new SimpleMailMessage();
+  			//mail.setTo("guhuixiong@qq.com");
+  			mail.setTo(new String[]{"191861149@qq.com","441041090@qq.com","shenyan@9188.com"});// 接受者
+  			mail.setFrom("guhuixiong@9188.com");// 发送者,这里还可以另起Email别名，不用和xml里的username一致
+  			mail.setSubject("["+infoType+"]来自足球数据中心页面的错误提交—"+sdf.format(System.currentTimeMillis()));// 主题
+  			mail.setText("提交人的联系方式："+email+"\r\n路径:"+pageUrl+"\r\n错误描述："+errorDes);// 邮件内容
+  			javaMailSender.send(mail);
+		} catch (Exception e) {
+  			e.printStackTrace();
+  			return "success_jsonpCallback({\"name\":\"error\"})";
+		}
+		System.out.println("发送成功...");
+		return "success_jsonpCallback({\"name\":\"success\"})";
+	}
