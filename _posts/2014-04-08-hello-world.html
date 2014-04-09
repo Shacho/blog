@@ -74,3 +74,10 @@ function sendMailError() {
 		System.out.println("发送成功...");
 		return "success_jsonpCallback({\"name\":\"success\"})";
 	}
+	
+	
+	 select * from (
+                select a.*, rownum rn from (
+                                             select the_data from the_table order by the_order 
+                                           ) a where rownum < 5      
+             ) where rn = 4
