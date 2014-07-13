@@ -14,5 +14,7 @@ GitHub上README写法暨markdown语法解读  [猛击这里](http://www.tuicool.
 部分文字高亮&nbsp;&nbsp;&nbsp;&nbsp;Thank `You` Please `Call` Me Coder<br>
 文字超链接&nbsp;&nbsp;&nbsp;&nbsp;[我的博客](http://weibo.com/xc19910903/ "悬停显示")<br>
 图片的显示<br>
-![](http://www.baidu.com/img/bdlogo.gif)
+![](http://www.baidu.com/img/bdlogo.gif)<br>
+八卦一把，话说今天是2014巴西世界杯的决赛，你认为谁会夺得本届冠军的奖杯呢，或许她已经给我们答案了，猛搓下图<br>
+![](http://ww3.sinaimg.cn/bmiddle/67ebfe4ejw1eibkn95l5lj20xr190e81.jpg "乌贼刘-刘语熙")
 
