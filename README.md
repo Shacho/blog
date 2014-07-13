@@ -11,5 +11,6 @@
 这是一个超链接 www.baidu.com<br>
 部分文字高亮&nbsp;&nbsp;&nbsp;&nbsp;Thank `You` Please `Call` Me Coder<br>
 文字超链接&nbsp;&nbsp;&nbsp;&nbsp;[我的博客](http://weibo.com/xc19910903/ "悬停显示")<br>
-
+图片的显示<br>
+![](http://www.baidu.com/img/bdlogo.gif)
 
