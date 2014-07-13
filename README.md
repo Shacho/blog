@@ -16,5 +16,5 @@ GitHub上README写法暨markdown语法解读  [猛击这里](http://www.tuicool.
 图片的显示<br>
 ![](http://www.baidu.com/img/bdlogo.gif)<br>
 八卦一把，话说今天是2014巴西世界杯的决赛，你认为谁会夺得本届冠军的奖杯呢，或许她已经给我们答案了，猛搓下图<br>
-![](http://ww3.sinaimg.cn/bmiddle/67ebfe4ejw1eibkn95l5lj20xr190e81.jpg "乌贼刘-刘语熙")
+![](http://www.sinaimg.cn/bmiddle/67ebfe4ejw1eibkn95l5lj20xr190e81.jpg "乌贼刘-刘语熙")
 
