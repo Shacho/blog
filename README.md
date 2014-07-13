@@ -6,6 +6,8 @@
 * 昵称:虾米<br>
 * 别名:超超<br>
 * 英文名: xiami<br>
+
+GitHub上README写法暨markdown语法解读  [猛击这里](http://www.tuicool.com/articles/zIJrEjn)<br>
 这是一段普通的文本。<br>
 这又是一段普通的文本。\<br>转移字符<br>
 这是一个超链接 www.baidu.com<br>
